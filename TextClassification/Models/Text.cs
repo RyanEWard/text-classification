@@ -7,7 +7,7 @@ namespace TextClassification.Models
 {
     public class Text
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
         public string Class { get; set; }
         public string Content { get; set; }
