@@ -100,13 +100,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\TextsController.cs" />
-    <Compile Include="DAL\TextContext.cs" />
-    <Compile Include="DAL\TextContextInitializer.cs" />
+    <Compile Include="Controllers\DocumentsController.cs" />
+    <Compile Include="DAL\TextClassificationContext.cs" />
+    <Compile Include="DAL\TextClassificationContextInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Text.cs" />
+    <Compile Include="Models\Document.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
