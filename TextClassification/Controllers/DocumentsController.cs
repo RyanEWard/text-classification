@@ -20,7 +20,7 @@ namespace TextClassification.Controllers
 
         public IHttpActionResult GetDocument(int id)
         {
-            Document document = db.Documents.Single(t => t.ID == id);
+            Document document = db.Documents.Single(t => t.Id == id);
 
             if (document == null)
             {

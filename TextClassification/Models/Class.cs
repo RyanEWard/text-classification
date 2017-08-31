@@ -6,14 +6,12 @@ using System.Web;
 
 namespace TextClassification.Models
 {
-    public class Document
+    public class Class
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int ClassId { get; set; }
-        public string Content { get; set; }
 
-        public virtual Class Class { get; set; }
+        public string ClassName { get; set; }
+        public int TrigramOccurences { get; set; }
     }
 }

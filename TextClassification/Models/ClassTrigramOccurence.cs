@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace TextClassification.Models
 {
-    public class Document
+    public class ClassTrigramOccurence
     {
         [Key]
-        public int Id { get; set; }
-        public string Name { get; set; }
         public int ClassId { get; set; }
-        public string Content { get; set; }
+        [Key]
+        public int TrigramId { get; set; }
 
         public virtual Class Class { get; set; }
+        public virtual Trigram Trigram { get; set; }
+
+        public int Occurrences { get; set; }
     }
 }

@@ -15,5 +15,7 @@ namespace TextClassification.DAL
         }
 
         public DbSet<Document> Documents { get; set; }
+        public DbSet<Trigram> Trigrams { get; set; }
+        public DbSet<ClassTrigramOccurence> ClassTrigramOccurences { get; set; }
     }
 }

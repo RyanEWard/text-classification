@@ -11,8 +11,8 @@ namespace TextClassification.DAL
         protected override void Seed(TextClassificationContext context)
         {
             List<Document> documents = new List<Document>();
-            documents.Add(new Document { ID = 1, Name = "post1", Class = "sp-learn", Content = "hello world" });
-            documents.Add(new Document { ID = 2, Name = "post2", Class = "sp-learn2", Content = "hello world2" });
+            documents.Add(new Document { Name = "post1", Class = "sp-learn", Content = "hello world" });
+            documents.Add(new Document { Name = "post2", Class = "sp-learn2", Content = "hello world2" });
 
             documents.ForEach(t => context.Documents.Add(t));
             context.SaveChanges();
