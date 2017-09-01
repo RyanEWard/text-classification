@@ -10,8 +10,10 @@ namespace TextClassification.Models
     public class ClassTrigramOccurence
     {
         [Key]
+        [Column(Order = 1)]
         public int ClassId { get; set; }
         [Key]
+        [Column(Order = 2)]
         public int TrigramId { get; set; }
 
         public virtual Class Class { get; set; }
