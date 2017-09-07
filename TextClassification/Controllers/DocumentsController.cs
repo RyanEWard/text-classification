@@ -7,6 +7,7 @@ using System.Web.Http;
 using TextClassification.DAL;
 using TextClassification.Models;
 using TextClassification.Models.InputModel;
+using TextClassification.Processors;
 
 namespace TextClassification.Controllers
 {
@@ -82,6 +83,8 @@ namespace TextClassification.Controllers
             db.SaveChanges();
 
             Document document = db.Documents.Include("Classification").Single(d => d.Id == docToAdd.Id);
+
+            DocumentProcessor.AddDocument(document, db);
 
             return Ok(document);
         }

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TextClassification.Controllers;
 using TextClassification.Models;
+using TextClassification.Models.InputModel;
 
 namespace TextClassification.DAL
 {
@@ -10,11 +12,13 @@ namespace TextClassification.DAL
     {
         protected override void Seed(TextClassificationContext context)
         {
-            List<Document> documents = new List<Document>();
-            documents.Add(new Document { Name = "post1", Classification = new Classification { Name = "sp-learn" }, Content = "hello world" });
-            documents.Add(new Document { Name = "post2", Classification = new Classification { Name = "sp-learn2" }, Content = "hello world2" });
+            List<DocumentInput> documents = new List<DocumentInput>();
+            documents.Add(new DocumentInput { Name = "post1", ClassificationName = "learn1", Content = "hello world" });
+            documents.Add(new DocumentInput { Name = "post2", ClassificationName = "learn2", Content = "hello world2" });
 
-            documents.ForEach(t => context.Documents.Add(t));
+            DocumentsController dc = new DocumentsController(context);
+
+            documents.ForEach(d => dc.PostDocument(d));
             context.SaveChanges();
         }
     }

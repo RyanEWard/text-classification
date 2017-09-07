@@ -112,6 +112,7 @@
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\InputModel\DocumentInput.cs" />
     <Compile Include="Models\Trigram.cs" />
+    <Compile Include="Processors\DocumentProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
