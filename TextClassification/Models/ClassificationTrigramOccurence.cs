@@ -7,7 +7,7 @@ using System.Web;
 
 namespace TextClassification.Models
 {
-    public class ClassTrigramOccurence
+    public class ClassificationTrigramOccurence
     {
         [Key]
         [Column(Order = 1)]
@@ -16,7 +16,7 @@ namespace TextClassification.Models
         [Column(Order = 2)]
         public int TrigramId { get; set; }
 
-        public virtual Class Class { get; set; }
+        public virtual Classification Class { get; set; }
         public virtual Trigram Trigram { get; set; }
 
         public int Occurrences { get; set; }

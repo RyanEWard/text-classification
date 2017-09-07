@@ -107,9 +107,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Class.cs" />
-    <Compile Include="Models\ClassTrigramOccurence.cs" />
+    <Compile Include="Models\Classification.cs" />
+    <Compile Include="Models\ClassificationTrigramOccurence.cs" />
     <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\InputModel\DocumentInput.cs" />
     <Compile Include="Models\Trigram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

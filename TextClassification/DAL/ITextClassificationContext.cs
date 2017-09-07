@@ -11,6 +11,9 @@ namespace TextClassification.DAL
     {
         DbSet<Document> Documents { get; set; }
         DbSet<Trigram> Trigrams { get; set; }
-        DbSet<ClassTrigramOccurence> ClassTrigramOccurences { get; set; }
+        DbSet<ClassificationTrigramOccurence> ClassTrigramOccurences { get; set; }
+        DbSet<Classification> Classifications { get; set; }
+
+        int SaveChanges();
     }
 }
