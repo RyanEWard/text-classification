@@ -8,7 +8,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace TextClassification.DAL
 {
-    public class TextClassificationContext : DbContext
+    public class TextClassificationContext : DbContext, ITextClassificationContext
     {
         public TextClassificationContext() : base("TextClassificationContext")
         {

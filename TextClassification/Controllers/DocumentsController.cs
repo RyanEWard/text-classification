@@ -11,7 +11,14 @@ namespace TextClassification.Controllers
 {
     public class DocumentsController : ApiController
     {
-        private TextClassificationContext db = new TextClassificationContext();
+        private ITextClassificationContext db = new TextClassificationContext();
+
+        public DocumentsController() { }
+
+        public DocumentsController(ITextClassificationContext context)
+        {
+            db = context;
+        }
 
         public IEnumerable<Document> GetDocuments()
         {
