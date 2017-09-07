@@ -15,12 +15,12 @@ namespace TextClassification.Controllers
 
         public IEnumerable<Document> GetDocuments()
         {
-            return db.Documents;
+            return db.Documents.Include("Class");
         }
 
         public IHttpActionResult GetDocument(int id)
         {
-            Document document = db.Documents.Single(t => t.Id == id);
+            Document document = db.Documents.Include("Class").Single(t => t.Id == id);
 
             if (document == null)
             {
