@@ -5,7 +5,9 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TextClassification.DAL;
+using TextClassification.Models;
 using TextClassification.Models.InputModel;
+using TextClassification.Processors;
 
 namespace TextClassification.Controllers
 {
@@ -32,7 +34,9 @@ namespace TextClassification.Controllers
                 return BadRequest("No content provided.");
             }
 
-            return Ok();
+            Prediction p = PredictionProcessor.GetPrediction(predictionInput, db);
+
+            return Ok(p);
         }
     }
 }

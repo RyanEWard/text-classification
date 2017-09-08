@@ -26,16 +26,7 @@ namespace TextClassification.Processors
         private static List<Trigram> AddOrGetTrigrams(List<Trigram> trigrams, ITextClassificationContext db)
         {
             //link up existing trigram ids with db
-            //double select hack to get EF to assign new ids
-            List<Trigram> trigramsWithIds =
-                (
-                from t1 in trigrams
-                join dbTrigram in db.Trigrams on t1.Sequence equals dbTrigram.Sequence into intermediate
-                from t2 in intermediate.DefaultIfEmpty()
-                select new Trigram { Sequence = t1.Sequence, Id = t2?.Id ?? 0 }
-                )
-                .Select(t => t.Id == 0 ? new Trigram { Sequence = t.Sequence } : t)
-                .ToList();
+            List<Trigram> trigramsWithIds = TextHelper.LinkTrigramIds(trigrams, db);
 
             //add trigrams with no id to db
             trigramsWithIds
