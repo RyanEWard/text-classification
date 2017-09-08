@@ -12,32 +12,15 @@ namespace TextClassification.Processors
     {
         public static void AddDocument(Document doc, ITextClassificationContext db)
         {
-            List<Trigram> docTrigrams = GetDocTrigrams(doc.Content);
+            List<Trigram> docTrigrams = TextHelper.GetDocTrigrams(doc.Content);
 
             docTrigrams = AddOrGetTrigrams(docTrigrams, db);
 
             AddOrUpdateClassificationTrigramOccurences(doc.ClassificationId, docTrigrams, db);
 
-            AddOrUpdateClassification(doc.ClassificationId, docTrigrams.Count, db);
+            UpdateClassificationCount(doc.ClassificationId, docTrigrams.Count, db);
 
             db.SaveChanges();
-        }
-
-        private static List<Trigram> GetDocTrigrams(string text)
-        {
-            //only a-z, A-Z, 0-9, and space as allowed characters
-            string cleanedText = Regex.Replace(text, @"[^a-zA-Z0-9\s]", "");
-            //replace spaces with _
-            cleanedText = cleanedText.Replace(" ", "_");
-
-            List<Trigram> docTrigrams = new List<Trigram>();
-
-            for (int i = 0; i < cleanedText.Length - 2; i++)
-            {
-                docTrigrams.Add(new Trigram { Sequence = cleanedText.Substring(i, 3) });
-            }
-
-            return docTrigrams;
         }
 
         private static List<Trigram> AddOrGetTrigrams(List<Trigram> trigrams, ITextClassificationContext db)
@@ -65,11 +48,6 @@ namespace TextClassification.Processors
             return trigramsWithIds;
         }
 
-        private static Trigram TrigramHelper(Trigram t)
-        {
-            return new Trigram { Sequence = t.Sequence };
-        }
-
         private static void AddOrUpdateClassificationTrigramOccurences(int classId, List<Trigram> docTrigrams, ITextClassificationContext db)
         {
             foreach (Trigram t in docTrigrams)
@@ -93,7 +71,7 @@ namespace TextClassification.Processors
             }
         }
 
-        private static void AddOrUpdateClassification(int classificationId, int newTrigramCount, ITextClassificationContext db)
+        private static void UpdateClassificationCount(int classificationId, int newTrigramCount, ITextClassificationContext db)
         {
             Classification classification = db.Classifications.Single(c => c.Id == classificationId);
 

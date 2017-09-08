@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,12 +9,16 @@ namespace TextClassification.Models
 {
     public class Document
     {
-        [Key]
+        [Key, JsonProperty(Order = 1)]
         public int Id { get; set; }
+        [JsonProperty(Order = 2)]
         public string Name { get; set; }
+        [JsonProperty(Order = 3)]
         public int ClassificationId { get; set; }
+        [JsonProperty(Order = 4)]
         public string Content { get; set; }
 
+        [JsonProperty(Order = 5)]
         public virtual Classification Classification { get; set; }
     }
 }

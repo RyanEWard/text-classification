@@ -101,6 +101,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DocumentsController.cs" />
+    <Compile Include="Controllers\PredictionsController.cs" />
     <Compile Include="DAL\ITextClassificationContext.cs" />
     <Compile Include="DAL\TextClassificationContext.cs" />
     <Compile Include="DAL\TextClassificationContextInitializer.cs" />
@@ -111,8 +112,12 @@
     <Compile Include="Models\ClassificationTrigramOccurence.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\InputModel\DocumentInput.cs" />
+    <Compile Include="Models\InputModel\PredictionInput.cs" />
+    <Compile Include="Models\Prediction.cs" />
     <Compile Include="Models\Trigram.cs" />
     <Compile Include="Processors\DocumentProcessor.cs" />
+    <Compile Include="Processors\PredictionProcessor.cs" />
+    <Compile Include="Processors\TextHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
