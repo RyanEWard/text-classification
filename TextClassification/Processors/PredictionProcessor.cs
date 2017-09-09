@@ -60,7 +60,7 @@ namespace TextClassification.Processors
 
             foreach (int classId in classificationVectors.Keys)
             {
-                similarity[classId] = CosineSimilarity(inputVector, classificationVectors[classId]);
+                similarity[classId] = 1 - 2 * Math.Acos(CosineSimilarity(inputVector, classificationVectors[classId])) / Math.PI;
             }
 
             Prediction p = new Prediction();
@@ -89,15 +89,15 @@ namespace TextClassification.Processors
             {
                 if (classificationVector.Keys.Contains(trigramId))
                 {
-                    dotProduct += inputVector[trigramId] * classificationVector[trigramId];
+                    dotProduct += inputVector[trigramId] * (long)classificationVector[trigramId];
                 }
 
-                squaredSumInput += inputVector[trigramId] * inputVector[trigramId];
+                squaredSumInput += Math.Pow(inputVector[trigramId], 2);
             }
 
             foreach (int trigramId in classificationVector.Keys)
             {
-                squaredSumClassification += classificationVector[trigramId] * classificationVector[trigramId];
+                squaredSumClassification += Math.Pow(classificationVector[trigramId], 2);
             }
 
             return dotProduct / (Math.Sqrt(squaredSumInput) * Math.Sqrt(squaredSumClassification));

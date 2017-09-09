@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using TextClassification.Controllers;
@@ -13,8 +15,17 @@ namespace TextClassification.DAL
         protected override void Seed(TextClassificationContext context)
         {
             List<DocumentInput> documents = new List<DocumentInput>();
-            documents.Add(new DocumentInput { Name = "post1", ClassificationName = "learn1", Content = "hello world" });
-            documents.Add(new DocumentInput { Name = "post2", ClassificationName = "learn2", Content = "hello world2" });
+
+            string path = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
+            using (StreamReader r = new StreamReader(path + "/Musical_Instruments_5.json"))
+            {
+                string json;
+                while ((json = r.ReadLine()) != null)
+                {
+                    dynamic item = JsonConvert.DeserializeObject(json);
+                    documents.Add(new DocumentInput { Name = item.reviewerID + item.asin, ClassificationName = item.overall, Content = item.reviewText });
+                }
+            }
 
             DocumentsController dc = new DocumentsController(context);
 
