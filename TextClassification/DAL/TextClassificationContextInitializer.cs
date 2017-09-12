@@ -23,7 +23,7 @@ namespace TextClassification.DAL
                 while ((json = r.ReadLine()) != null)
                 {
                     dynamic item = JsonConvert.DeserializeObject(json);
-                    documents.Add(new DocumentInput { Name = item.reviewerID + item.asin, ClassificationName = item.overall, Content = item.reviewText });
+                    documents.Add(new DocumentInput { Name = item.reviewerID + item.asin, ClassificationName = item.overall + (item.overall == "1" ? " star" : " stars"), Content = item.reviewText });
                 }
             }
 
