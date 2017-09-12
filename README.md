@@ -73,5 +73,5 @@ This specified DB server will be used, with the database "text_classification" b
 
 - POSTing documents takes much longer than it logically should, causing the initial database setup to take over 30 minutes. I will have to do a deep dive into what I suspect are some inefficient queries caused by some LINQ or EF interactions I'm not aware of.
 
-- The ClassificationSimiliarityMeasures are close together for all classes no matter the prediction text, since the predictions are more along the lines of "this is English" rather than "this is class A". I need to research how to separate out the commonalities between classes better.
+- The ClassificationSimiliarityMeasures are close together for all classes no matter the prediction text, causing the prediction to be more along the lines of "this is English" rather than "this is class A". However, the predictions are still OK with the expected result sticking out. I need to research how to separate out the commonalities between classes better so that the similiarity measure is more meaningful.
 
