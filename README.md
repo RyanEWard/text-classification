@@ -1,4 +1,4 @@
-# text-classification
+# trigram-text-classification
 Text classification RESTful service using character trigrams in C#. Made as a way for me to get a handle on ASP.NET Web API and Entity Framework.
 
 # Examples
