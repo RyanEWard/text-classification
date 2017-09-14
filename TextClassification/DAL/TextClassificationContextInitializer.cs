@@ -2,10 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Web;
 using TextClassification.Controllers;
-using TextClassification.Models;
 using TextClassification.Models.InputModel;
 
 namespace TextClassification.DAL
