@@ -43,7 +43,7 @@ namespace TextClassification.Processors
 
             foreach (Classification c in db.Classifications.ToList())
             {
-                classificationVectors[c.Id] = db.ClassTrigramOccurences
+                classificationVectors[c.Id] = db.ClassificationTrigramOccurences
                                                 .Where(ct => ct.ClassId == c.Id)
                                                 .ToDictionary(ct => ct.TrigramId, ct => ct.Occurrences);
 

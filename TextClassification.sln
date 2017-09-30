@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextClassification", "TextClassification\TextClassification.csproj", "{D8E76547-6EAD-4495-95D5-7BEBE33ADAD9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextClassificationTests", "TextClassificationTests\TextClassificationTests.csproj", "{CC7F2821-3DA5-432E-889E-57D2FB1436E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D8E76547-6EAD-4495-95D5-7BEBE33ADAD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8E76547-6EAD-4495-95D5-7BEBE33ADAD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8E76547-6EAD-4495-95D5-7BEBE33ADAD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC7F2821-3DA5-432E-889E-57D2FB1436E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC7F2821-3DA5-432E-889E-57D2FB1436E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC7F2821-3DA5-432E-889E-57D2FB1436E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC7F2821-3DA5-432E-889E-57D2FB1436E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

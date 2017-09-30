@@ -2,7 +2,7 @@
 
 namespace TextClassification.Models
 {
-    public class Trigram
+    public class Trigram : IAutoIncrementId
     {
         [Key]
         public int Id { get; set; }

@@ -38,7 +38,7 @@ namespace TextClassification.Processors
 
         private static void AddOrUpdateClassificationTrigramOccurences(int classId, List<Trigram> docTrigrams, ITextClassificationContext db)
         {
-            //need to rollup multiple trigram occurences to avoid an EF error adding the same ClassificationTrigramOccurence twice
+            //need to rollup multiple trigram occurences to avoid an EF error adding the same ClassificationTrigramOccurence twice before a SaveChange
             //trigramId -> count
             Dictionary<int, int> docVector = docTrigrams
                    .GroupBy(t => t.Sequence)
@@ -47,11 +47,11 @@ namespace TextClassification.Processors
             foreach (int trigramId in docVector.Keys)
             {
                 ClassificationTrigramOccurence cto
-                    = db.ClassTrigramOccurences.SingleOrDefault(o => o.ClassId == classId && o.TrigramId == trigramId);
+                    = db.ClassificationTrigramOccurences.SingleOrDefault(o => o.ClassId == classId && o.TrigramId == trigramId);
 
                 if (cto is null)
                 {
-                    db.ClassTrigramOccurences.Add(new ClassificationTrigramOccurence
+                    db.ClassificationTrigramOccurences.Add(new ClassificationTrigramOccurence
                     {
                         ClassId = classId,
                         TrigramId = trigramId,

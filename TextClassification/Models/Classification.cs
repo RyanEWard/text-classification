@@ -2,7 +2,7 @@
 
 namespace TextClassification.Models
 {
-    public class Classification
+    public class Classification : IAutoIncrementId
     {
         [Key]
         public int Id { get; set; }

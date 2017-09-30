@@ -111,6 +111,7 @@
     <Compile Include="Models\Classification.cs" />
     <Compile Include="Models\ClassificationTrigramOccurence.cs" />
     <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\IAutoIncrementId.cs" />
     <Compile Include="Models\InputModel\DocumentInput.cs" />
     <Compile Include="Models\InputModel\PredictionInput.cs" />
     <Compile Include="Models\Prediction.cs" />

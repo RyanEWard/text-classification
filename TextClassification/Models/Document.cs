@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TextClassification.Models
 {
-    public class Document
+    public class Document : IAutoIncrementId
     {
         [Key, JsonProperty(Order = 1)]
         public int Id { get; set; }
