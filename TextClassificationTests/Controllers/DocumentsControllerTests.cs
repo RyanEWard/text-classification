@@ -63,7 +63,7 @@ namespace TextClassification.Controllers.Tests
 
             var response1 = docController.PostDocument(docInput1) as OkNegotiatedContentResult<Document>;
             var response2 = docController.PostDocument(docInput2) as OkNegotiatedContentResult<Document>;
-            var response3 = docController.PostDocument(docInput2) as OkNegotiatedContentResult<Document>;
+            var response3 = docController.PostDocument(docInput3) as OkNegotiatedContentResult<Document>;
 
             // grab trigram Ids corresponding to "o_w" and  "ld2" to check counts later 
             int o_w_Id = db.Trigrams.Single(t => t.Sequence == "o_w").Id;
