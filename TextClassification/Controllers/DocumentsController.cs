@@ -26,7 +26,7 @@ namespace TextClassification.Controllers
 
         public IHttpActionResult GetDocument(int id)
         {
-            Document document = db.Documents.Include("Classification").Single(d => d.Id == id);
+            Document document = db.Documents.Include("Classification").SingleOrDefault(d => d.Id == id);
 
             if (document == null)
             {
@@ -45,7 +45,7 @@ namespace TextClassification.Controllers
             if (docInput.ClassificationId == 0
                 && (docInput.ClassificationName is null || docInput.ClassificationName == ""))
             {
-                return BadRequest("ClassificationId or ClassificationName must be specified");
+                return BadRequest("ClassificationId or ClassificationName must be specified.");
             }
 
             Document docToAdd = new Document();

@@ -78,6 +78,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Controllers\DocumentsControllerTests.cs" />
+    <Compile Include="Controllers\PredictionsControllerTests.cs" />
     <Compile Include="DALMock\TestDbSet.cs" />
     <Compile Include="DALMock\TestDbSetAutoId.cs" />
     <Compile Include="DALMock\TestDbSetDocument.cs" />
